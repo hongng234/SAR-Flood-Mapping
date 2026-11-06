@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+data/
+docs/
+run.log
+outputs/*
+!outputs/figures/
+!outputs/metrics.csv
+!outputs/per_event.csv

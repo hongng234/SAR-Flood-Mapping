@@ -1,0 +1,32 @@
+# SAR Flood Mapping - all settings in one place.
+
+seed: 42
+
+paths:
+  data_dir: data/sen1floods11          # downloaded chips, labels and split CSVs
+  output_dir: outputs                  # metrics, figures, checkpoint
+
+data:
+  db_clip: [-50.0, 1.0]                # clip extreme backscatter values (dB)
+  splits:                              # official Sen1Floods11 hand-labeled splits
+    train: flood_train_data.csv
+    val: flood_valid_data.csv
+    test: flood_test_data.csv
+    bolivia: flood_bolivia_data.csv    # held-out flood event (never used for training)
+
+baselines:
+  rf_trees: 100
+  rf_max_depth: 16
+  rf_pixels: 200000                    # training pixels sampled from the train split
+
+model:
+  encoder: resnet18
+  encoder_weights: imagenet            # null = random init (no download)
+
+train:
+  epochs: 60
+  batch_size: 8
+  lr: 0.0005
+  weight_decay: 0.0001
+  patience: 12                         # early stopping: epochs without val IoU improvement
+  amp: true                            # mixed precision on GPU
