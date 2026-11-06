@@ -55,7 +55,6 @@ python -m pytest           # 27 tests on fake data, no download needed
 | `src/evaluate.py` | IoU / F1 / precision / recall, scores every method → `outputs/metrics.csv` |
 | `src/visualize.py` | figures in `outputs/figures/` |
 | `tests/` | tests for data, metrics, baselines, model and the full pipeline |
-| `docs/GIAI_THICH.md` | detailed explanation (Vietnamese) |
 
 ## Limitations
 - Sentinel-1 has 10 m pixels, so narrow rivers and water under vegetation are often invisible.
